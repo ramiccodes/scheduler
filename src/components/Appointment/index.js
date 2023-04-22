@@ -26,7 +26,7 @@ const Appointment = (props) => {
       )} 
       {mode === CREATE && (
         <Form 
-          interviewers={[]}
+          interviewers={props.interviewers}
           onSave={() => console.log("Somebody you loved")}
           onCancel={() => back()}
         />

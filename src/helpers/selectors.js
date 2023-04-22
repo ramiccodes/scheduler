@@ -22,7 +22,21 @@ const getInterview = (state, interview) => {
   return interviewObj;
 }
 
+const getInterviewersForDay = (state, day) => {
+  const arr = [];
+  for (const item of state.days) {
+    if (item.name === day) {
+      for (const int of item.interviewers) {
+        if (state.interviewers[int]) {
+          arr.push(state.interviewers[int]);
+        }
+      }
+    }
+  }
+  return arr;
+}
 
-export {getAppointmentsForDay, getInterview}
+
+export {getAppointmentsForDay, getInterview, getInterviewersForDay}
 
 
