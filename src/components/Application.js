@@ -29,9 +29,47 @@ const appointmentsArray = dailyAppointments.map(appt => {
     time={appt.time}
     interview={interview}
     interviewers={dailyInterviewers}
+    bookInterview={bookInterview}
+    // cancelInterview={cancelInterview}
   />
   )
 })
+
+function bookInterview(id, interview) {
+  const appointment = {
+    ...state.appointments[id],
+    interview: { ...interview }
+  };
+  const appointments = {
+    ...state.appointments,
+    [id]: appointment
+  };
+  return axios.put(`/api/appointments/${id}`, appointment)
+  .then(() => {
+    setState({
+      ...state,
+      appointments
+    });
+  })
+}
+
+// const cancelInterview = (id) => {
+//   const appointment = {
+//     ...state.appointments[id],
+//     interview: null
+//   }
+//   const appointments = {
+//     ...state.appointments,
+//     [id]: appointment
+//   };
+//   return axios.delete(`/api/appointments/${id}`, appointment)
+//   .then(() => {
+//     setState({
+//       ...state,
+//       appointments
+//     })
+//   })
+// }
 
 const setDay = day => setState({ ...state, day });
 
@@ -69,7 +107,7 @@ useEffect(() => {
       </section>
       <section className="schedule">
         {appointmentsArray}
-        <Appointment key="last" time="5pm" />
+        <Appointment key="last" time="5pm" bookInterview={bookInterview}/>
       </section>
     </main>
   );
