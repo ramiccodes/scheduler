@@ -34,7 +34,7 @@ const Appointment = (props) => {
     .then(() => transition(SHOW))
     .catch(() => transition(ERROR_SAVE, true));
   }
-
+  
   function deleteAppointment() {
     transition(DELETE, true);
     props.cancelInterview(props.id)
