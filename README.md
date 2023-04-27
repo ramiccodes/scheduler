@@ -21,3 +21,6 @@ npm test
 ```sh
 npm run storybook
 ```
+
+!["Appointment Form"](https://github.com/ramiccodes/scheduler/blob/master/docs/appointment-form.JPG?raw=true)
+!["Appointment Show"](https://github.com/ramiccodes/scheduler/blob/master/docs/appointment-show.JPG?raw=true)
