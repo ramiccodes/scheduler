@@ -20,7 +20,7 @@ const getInterview = (state, interview) => {
   interviewObj["interviewer"] = state.interviewers[interview.interviewer];
   interviewObj["student"] = interview.student;
   return interviewObj;
-}
+};
 
 const getInterviewersForDay = (state, day) => {
   const arr = [];
@@ -34,9 +34,6 @@ const getInterviewersForDay = (state, day) => {
     }
   }
   return arr;
-}
+};
 
-
-export {getAppointmentsForDay, getInterview, getInterviewersForDay}
-
-
+export { getAppointmentsForDay, getInterview, getInterviewersForDay };
